@@ -1,0 +1,13 @@
+DROP TABLE exam;
+DROP SEQUENCE exam_id_seq;
+
+CREATE SEQUENCE exam_id_seq;
+CREATE TABLE exam (
+  id INTEGER PRIMARY KEY DEFAULT nextval('exam_id_seq'),
+  name VARCHAR(100) NOT NULL,
+  is_delete VARCHAR(1) DEFAULT 'F',
+  reg_dt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  upd_dt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+select * from exam order by reg_dt desc;

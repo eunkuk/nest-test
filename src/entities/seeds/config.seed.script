@@ -1,0 +1,14 @@
+DROP TABLE config;
+DROP SEQUENCE config_id_seq;
+
+CREATE SEQUENCE config_id_seq;
+CREATE TABLE config (
+  id INTEGER PRIMARY KEY DEFAULT nextval('config_id_seq'),
+  type VARCHAR(10) NOT NULL,
+  key VARCHAR(50) NOT NULL,
+  value VARCHAR(500) NOT NULL,
+  reg_dt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  upd_dt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+select * from config order by reg_dt desc;
